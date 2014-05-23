@@ -17,20 +17,20 @@ RUN sudo /etc/init.d/mongod start
 RUN apt-get install -y git
 
 # code
-RUN git clone     https://github.com/larry-fuy/docker-mean.git
+RUN git clone      https://github.com/larry-fuy/docker-mean.git
 WORKDIR /docker-mean
 
 # Express and Mongoose
 RUN sudo npm install
 
+RUN sudo ln /usr/bin/nodejs /usr/bin/node
+
 # Bower, Angular
 RUN sudo npm install -g bower
-RUN sudo bower install
+#RUN sudo bower install
 
-ADD /run.sh /run.sh
-RUN chmod 755 /*.sh
-RUN rm *.zip
-
+ADD /run.sh /docker-mean/run.sh
+RUN chmod +x /docker-mean/*.sh
 
 EXPOSE 8080
-CMD ["/run.sh"]
+CMD ["/docker-mean/run.sh"]
