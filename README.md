@@ -20,3 +20,6 @@ Usage
   curl localhost:80
  ```
   
+Deploy
+======
+* `cd build` and run ` ./create.sh`
