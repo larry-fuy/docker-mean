@@ -11,12 +11,14 @@ RUN apt-get install -y npm
 RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 RUN echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
 RUN sudo apt-get update -q
-RUN sudo apt-get install mongodb-org
+RUN sudo apt-get install -y mongodb-org 
 RUN sudo /etc/init.d/mongod start
+
+RUN apt-get install -y git
 
 # code
 RUN git clone https://github.com/larry-fuy/docker-mean.git
-WORKDIR docker-mean
+WORKDIR /docker-mean
 
 # Express and Mongoose
 RUN sudo npm install
