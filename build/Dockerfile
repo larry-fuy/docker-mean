@@ -1,17 +1,34 @@
 FROM ubuntu
 MAINTAINER Yong Fu <larry.yong.fu@hotmail.com>
 
+RUN apt-get update -q
+
 # node
+RUN apt-get install -y nodejs
+RUN apt-get install -y npm
+
 # MongoDB
+RUN sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+RUN echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
+RUN sudo apt-get update -q
+RUN sudo apt-get install mongodb-org
+RUN sudo /etc/init.d/mongod start
 
-# Express
+# code
+RUN git clone https://github.com/larry-fuy/docker-mean.git
+WORKDIR docker-mean
 
-# Angular
+# Express and Mongoose
+RUN sudo npm install
+
+# Bower, Angular
+RUN sudo npm install -g bower
+RUN sudo bower install
 
 ADD /run.sh /run.sh
 RUN chmod 755 /*.sh
 RUN rm *.zip
 
 
-EXPOSE 80
+EXPOSE 8080
 CMD ["/run.sh"]
