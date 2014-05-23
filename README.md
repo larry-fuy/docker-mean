@@ -9,11 +9,11 @@ Usage
   
   ```
   git clone https://github.com/larry-fuy/docker-mean.git
-  cd docker-mean 
   ```
 * Run `create.sh` or manually 
   
   ```
+  cd docker-mean/build
   docker build -t fuy/docker-mean .
   docker run -d -p 127.0.0.1:8080:8080 --rm fuy/docker-mean
   ```
