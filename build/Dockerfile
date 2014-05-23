@@ -17,7 +17,7 @@ RUN sudo /etc/init.d/mongod start
 RUN apt-get install -y git
 
 # code
-RUN git clone https://github.com/larry-fuy/docker-mean.git
+RUN git clone     https://github.com/larry-fuy/docker-mean.git
 WORKDIR /docker-mean
 
 # Express and Mongoose
