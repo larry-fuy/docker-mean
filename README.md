@@ -6,20 +6,19 @@ MEAN tutorial application deployed on docker. The applicatoin is inspired by [Si
 Usage
 =====
 * Download sources
+  
   ```
   git clone https://github.com/larry-fuy/docker-mean.git
   cd docker-mean 
   ```
-* Run create.sh or manually 
+* Run `create.sh` or manually 
+  
   ```
   docker build -t fuy/docker-mean .
   docker run -d -p 127.0.0.1:80:8080 --rm fuy/docker-mean
   ```
-* Open web browser for `localhost:80` or
+* Check from web browser by `localhost:80` or
+
   ```
   curl localhost:80
  ```
-  
-Deploy
-======
-* `cd build` and run ` ./create.sh`
