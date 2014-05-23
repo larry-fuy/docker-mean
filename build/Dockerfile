@@ -27,7 +27,7 @@ RUN sudo ln /usr/bin/nodejs /usr/bin/node
 
 # Bower, Angular
 RUN sudo npm install -g bower
-#RUN sudo bower install
+RUN sudo bower install
 
 ADD /run.sh /docker-mean/run.sh
 RUN chmod +x /docker-mean/*.sh
